@@ -1,10 +1,23 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 1rem;
+}
+
+.body {
+  margin: 0;
+}
+
 .heading-title {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
-.row {
+.row,
+.day {
   display: flex;
   justify-content: center;
 }
@@ -14,7 +27,34 @@
 }
 
 .day {
-  border: solid;
+  justify-content: center;
+  align-items: center;
   height: 5rem;
   width: 5rem;
+  border: 2px solid black;
+}
+
+.day:hover {
+  background-color: lightgray;
+  cursor: pointer;
+}
+
+.btn-div {
+  margin-top: 1rem;
+}
+
+.add {
+  width: 8rem;
+  height: 2rem;
+  box-shadow: 5px 5px black;
+  border: 2px solid black;
+}
+
+.add:hover {
+  background-color: #95bcf1;
+  cursor: pointer;
+}
+
+.schedule-text {
+  margin-top: 2rem;
 }
