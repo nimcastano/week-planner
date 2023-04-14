@@ -1,0 +1,20 @@
+.heading-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.weekdays {
+  justify-content: space-between;
+}
+
+.day {
+  border: solid;
+  height: 5rem;
+  width: 5rem;
+}
