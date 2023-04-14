@@ -38,13 +38,21 @@ function renderEntry(entry) {
       const tBody = $tBodyList[i];
       const $tr = document.createElement('tr');
       // $tr.className('tbody');
-
+      $tr.setAttribute('data-entry-id', entry.entryId);
       const $td = document.createElement('td');
       $td.textContent = entry.time;
       // $td.className('time');
       const $td2 = document.createElement('td');
-      // $td2.className('description');
-      $td2.textContent = entry.description;
+      $td2.className = 'update';
+      const $span = document.createElement('span');
+      // span element text
+      $span.textContent = entry.description;
+      $td2.appendChild($span);
+      // edit button
+      const $editBtn = document.createElement('button');
+      $editBtn.className = 'edit-btn';
+      $editBtn.textContent = 'Update';
+      $td2.appendChild($editBtn);
 
       $tr.appendChild($td);
       $tr.appendChild($td2);
@@ -59,17 +67,22 @@ function renderEntry(entry) {
 
 $form.addEventListener('submit', e => {
   event.preventDefault();
-  const userInput = {
-    day: $form.elements.weekday.value,
-    time: $form.elements.time.value,
-    description: $form.elements.description.value,
-    entryId: data.nextEntryId
-  };
-  data.entries.push(userInput);
-  renderEntry(userInput);
-  data.nextEntryId++;
-  $modalContainer.className = 'modal-container hidden';
-  $form.reset();
+  if (data.editing === null) {
+    const userInput = {
+      day: $form.elements.weekday.value,
+      time: $form.elements.time.value,
+      description: $form.elements.description.value,
+      entryId: data.nextEntryId
+    };
+    data.entries.push(userInput);
+    renderEntry(userInput);
+    data.nextEntryId++;
+    $modalContainer.className = 'modal-container hidden';
+    $form.reset();
+  }
+  // } else {
+
+  // }
 });
 
 function viewSwap(string) {
@@ -90,4 +103,25 @@ $dayButton.addEventListener('click', e => {
   if (e.target.tagName === 'P') {
     viewSwap(e.target.textContent.toLowerCase());
   }
+});
+
+const $modalTitle = document.querySelector('.modal-title');
+const $table = document.querySelector('table');
+$table.addEventListener('click', e => {
+  if (e.target.tagName === 'BUTTON') {
+    $modalContainer.className = 'modal-container';
+    const $dataEntryId = Number(e.target.closest('tr').getAttribute('data-entry-id'));
+
+    $modalTitle.textContent = 'Update Entry';
+    for (let i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].entryId === $dataEntryId) {
+        data.editing = data.entries[i];
+        $form.elements.weekday.value = data.entries[i].day;
+        $form.elements.time.value = data.entries[i].time;
+        $form.elements.description.value = data.entries[i].description;
+
+      }
+    }
+  }
+
 });

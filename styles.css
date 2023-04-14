@@ -130,3 +130,23 @@ tr:nth-child(odd) {
 th {
   background-color: lightgrey;
 }
+
+.update {
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-btn {
+  background-color: blue;
+  color: white;
+  width: 6rem;
+  margin-right: 2rem;
+  box-shadow: 2px 2px black;
+  border: 2px solid black;
+}
+
+.edit-btn:hover {
+  cursor: pointer;
+  background-color: skyblue;
+  color: black;
+}
