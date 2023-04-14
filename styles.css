@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+.hidden {
+  display: none !important;
+}
+
 .container {
   margin: 1rem;
 }
@@ -57,4 +61,72 @@
 
 .schedule-text {
   margin-top: 2rem;
+}
+
+#drop-menu {
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+}
+
+.pop-up {
+  border: 2px solid black;
+  width: 30rem;
+  height: 16rem;
+  background-color: white;
+  padding: 0 2rem;
+}
+
+.modal-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #474e5d;
+  opacity: 98%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.textarea {
+  border: 2px solid black;
+  color: black;
+}
+
+#submit-btn {
+  margin-top: 1rem;
+  justify-content: flex-end;
+}
+
+#sub-btn {
+  background-color: white;
+  border: 2px solid black;
+  box-shadow: 2px 2px black;
+}
+
+#weekday {
+  border: 2px solid black;
+  margin-right: 1rem;
+}
+
+#time {
+  border: 2px solid black;
+}
+
+table,
+tr {
+  border: 2px solid black;
+}
+
+table {
+  width: 90%;
+}
+
+tr:nth-child(odd) {
+  background-color: rgb(235, 233, 233);
+}
+
+th {
+  background-color: lightgrey;
 }
